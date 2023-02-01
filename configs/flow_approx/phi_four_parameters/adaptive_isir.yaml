@@ -1,0 +1,36 @@
+save_name: adaptive_isir
+n_train_steps: 7500
+
+methods:
+
+  "Adaptive i-SIR (N = 40 | loss_type = forward_kl)":
+    name: adaptive_isir
+    save_name: adaptive_isir
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 512
+    loss_type: forward_kl
+    params:
+      N: 40
+
+
+  "Adaptive i-SIR (N = 70 | loss_type = forward_kl)":
+    name: adaptive_isir
+    save_name: adaptive_isir
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 512
+    loss_type: forward_kl
+    params:
+      N: 70
+
+
+  "Adaptive i-SIR (N = 90 | loss_type = forward_kl)":
+    name: adaptive_isir
+    save_name: adaptive_isir
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 512
+    loss_type: forward_kl
+    params:
+      N: 90

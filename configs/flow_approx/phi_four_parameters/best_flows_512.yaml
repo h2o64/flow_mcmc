@@ -1,0 +1,15 @@
+save_name: best_flows
+save_results: /tmp/results_phi_four_flows/
+
+methods:
+
+  "MALA (loss_type = forward_kl)":
+    name: mala
+    save_name: mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 256
+    loss_type: forward_kl
+    params:
+      step_size: 0.001
+      target_acceptance: 0.75

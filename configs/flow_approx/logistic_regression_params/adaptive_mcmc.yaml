@@ -1,0 +1,56 @@
+batch_size: 32
+save_path: /tmp/results/results_logistic_regression_params/
+
+flow_params:
+  n_realnvp_blocks: 6
+  hidden_dim: 64
+  hidden_depth: 3
+
+methods:
+
+  "AdaptiveMCMC with HMC (n_local_mcmc = 10)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_hmc_10
+    neutralize: false
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      local_sampler: 'hmc'
+      n_local_mcmc: 10
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "AdaptiveMCMC with HMC (n_local_mcmc = 30)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_hmc_30
+    neutralize: false
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      local_sampler: 'hmc'
+      n_local_mcmc: 30
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "AdaptiveMCMC with HMC (n_local_mcmc = 50)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_hmc_50
+    neutralize: false
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      local_sampler: 'hmc'
+      n_local_mcmc: 50
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False

@@ -1,0 +1,161 @@
+batch_size: 32
+save_path: /tmp/results/results_logistic_regression_params/
+
+flow_params:
+  n_realnvp_blocks: 6
+  hidden_dim: 64
+  hidden_depth: 3
+
+methods:
+
+  "NeuTra Ex²MCMC with HMC (N = 110 | n_local_mcmc = 10)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc_110_10
+    neutralize: true
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      N: 110
+      local_sampler: 'hmc'
+      n_local_mcmc: 10
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "NeuTra Ex²MCMC with HMC (N = 110 | n_local_mcmc = 30)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc_110_30
+    neutralize: true
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      N: 110
+      local_sampler: 'hmc'
+      n_local_mcmc: 30
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "NeuTra Ex²MCMC with HMC (N = 110 | n_local_mcmc = 50)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc_110_50
+    neutralize: true
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      N: 110
+      local_sampler: 'hmc'
+      n_local_mcmc: 50
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "NeuTra Ex²MCMC with HMC (N = 140 | n_local_mcmc = 10)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc_140_10
+    neutralize: true
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      N: 140
+      local_sampler: 'hmc'
+      n_local_mcmc: 10
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "NeuTra Ex²MCMC with HMC (N = 140 | n_local_mcmc = 30)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc_140_30
+    neutralize: true
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      N: 140
+      local_sampler: 'hmc'
+      n_local_mcmc: 30
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "NeuTra Ex²MCMC with HMC (N = 140 | n_local_mcmc = 50)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc_140_50
+    neutralize: true
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      N: 140
+      local_sampler: 'hmc'
+      n_local_mcmc: 50
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "NeuTra Ex²MCMC with HMC (N = 180 | n_local_mcmc = 10)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc_180_10
+    neutralize: true
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      N: 180
+      local_sampler: 'hmc'
+      n_local_mcmc: 10
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "NeuTra Ex²MCMC with HMC (N = 180 | n_local_mcmc = 30)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc_180_30
+    neutralize: true
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      N: 180
+      local_sampler: 'hmc'
+      n_local_mcmc: 30
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False
+
+
+  "NeuTra Ex²MCMC with HMC (N = 180 | n_local_mcmc = 50)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc_180_50
+    neutralize: true
+    warmup_steps: 128
+    n_steps: 256
+    params:
+      N: 180
+      local_sampler: 'hmc'
+      n_local_mcmc: 50
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: False

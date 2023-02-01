@@ -1,0 +1,20 @@
+save_name: best_flows
+n_train_steps: 7500
+save_results: /tmp/results_phi_four_flows/
+
+methods:
+
+  "FlEx²MCMC with MALA (N = 90 | n_local_mcmc = 15 | loss_type = forward_kl)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 512
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 15
+      N: 90
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75

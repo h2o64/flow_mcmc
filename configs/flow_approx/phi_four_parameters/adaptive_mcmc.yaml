@@ -1,0 +1,64 @@
+save_name: adaptive_mcmc
+n_train_steps: 7500
+
+methods:
+
+
+  "AdaptiveMCMC with MALA (n_local_mcmc = 5 | loss_type = forward_kl)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 512
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 5
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+
+  "AdaptiveMCMC with MALA (n_local_mcmc = 10 | loss_type = forward_kl)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 512
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+
+  "AdaptiveMCMC with MALA (n_local_mcmc = 15 | loss_type = forward_kl)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 512
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 15
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+
+  "AdaptiveMCMC with MALA (n_local_mcmc = 20 | loss_type = forward_kl)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 512
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75

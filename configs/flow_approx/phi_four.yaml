@@ -1,0 +1,149 @@
+batch_size: 32
+save_path: /tmp/results/results_phi_four/
+
+# Target parameters
+a: 0.1
+b: 0.0
+beta: 20
+
+# Flow parameters
+dimensions:
+
+  "Dimension 64":
+    dim: 64
+    n_realnvp_blocks: 5
+    hidden_dim: 128
+    hidden_depth: 3
+    weights_filepath: /tmp/results_phi_four_flows/mala_dim_64.pth
+
+  "Dimension 128":
+    dim: 128
+    n_realnvp_blocks: 6
+    hidden_dim: 256
+    hidden_depth: 3
+    weights_filepath: /tmp/results_phi_four_flows/mala_dim_128.pth
+
+  "Dimension 256":
+    dim: 256
+    n_realnvp_blocks: 10
+    hidden_dim: 512
+    hidden_depth: 4
+    weights_filepath: /tmp/results_phi_four_flows/mala_dim_256.pth
+
+# Sampling parameters
+methods:
+
+  "Adaptive i-SIR":
+    name: adaptive_isir
+    save_name: adaptive_isir
+    neutralize: false
+    warmup_steps: 256
+    n_steps: 256
+    scheduler:
+      params:
+        N:
+          64: 60
+          128: 80
+          256: 100
+
+  "Adaptive IMH":
+    name: adaptive_imh
+    save_name: adaptive_imh
+    neutralize: false
+    warmup_steps: 256
+    n_steps: 256
+    params:
+      dummy: 0
+
+  "Adaptive IS":
+    name: adaptive_is
+    save_name: adaptive_is
+    neutralize: false
+    warmup_steps: 256
+    n_steps: 256
+    scheduler:
+      params:
+        N:
+          64: 3840
+          128: 5120
+          256: 6400
+
+  MALA:
+    name: mala
+    save_name: mala
+    neutralize: false
+    warmup_steps: 256
+    n_steps: 256
+    params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+  "NeuTra with MALA":
+    name: mala
+    save_name: neutra_mala
+    neutralize: true
+    warmup_steps: 256
+    n_steps: 256
+    params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+  "Transport ESS":
+    name: ess
+    save_name: tess
+    neutralize: true
+    warmup_steps: 256
+    n_steps: 256
+    params:
+      dummy: 0
+
+  "NeuTra Ex²MCMC with MALA":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala
+    neutralize: true
+    warmup_steps: 256
+    n_steps: 256
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 25
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+    scheduler:
+      params:
+        N:
+          64: 60
+          128: 80
+          256: 100
+
+  "FlEx²MCMC with MALA":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala
+    neutralize: false
+    warmup_steps: 256
+    n_steps: 256
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 25
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+    scheduler:
+      params:
+        N:
+          64: 60
+          128: 80
+          256: 100
+
+  "AdaptiveMCMC with MALA":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala
+    neutralize: false
+    warmup_steps: 256
+    n_steps: 256
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 25
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75

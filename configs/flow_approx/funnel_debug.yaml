@@ -1,0 +1,582 @@
+batch_size: 32
+save_path: /tmp/results/results_funnel_debug/
+debug: true
+
+methods:
+
+  "NeuTra with MALA":
+    name: mala
+    save_name: neutra_mala
+    neutralize: true
+    warmup_steps: 0
+    params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "AdaptiveMCMC with MALA (n_local_mcmc = 10)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala_10
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 40 | n_local_mcmc = 10)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_40_10
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 40
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 40 | n_local_mcmc = 10)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_40_10
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 40
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 60 | n_local_mcmc = 10)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_60_10
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 60
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 60 | n_local_mcmc = 10)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_60_10
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 60
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 80 | n_local_mcmc = 10)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_80_10
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 80
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 80 | n_local_mcmc = 10)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_80_10
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 80
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 100 | n_local_mcmc = 10)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_100_10
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 100
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 100 | n_local_mcmc = 10)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_100_10
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 100
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 120 | n_local_mcmc = 10)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_120_10
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 120
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 120 | n_local_mcmc = 10)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_120_10
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 10
+      N: 120
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "AdaptiveMCMC with MALA (n_local_mcmc = 20)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala_20
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 40 | n_local_mcmc = 20)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_40_20
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 40
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 40 | n_local_mcmc = 20)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_40_20
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 40
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 60 | n_local_mcmc = 20)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_60_20
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 60
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 60 | n_local_mcmc = 20)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_60_20
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 60
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 80 | n_local_mcmc = 20)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_80_20
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 80
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 80 | n_local_mcmc = 20)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_80_20
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 80
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 100 | n_local_mcmc = 20)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_100_20
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 100
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 100 | n_local_mcmc = 20)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_100_20
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 100
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 120 | n_local_mcmc = 20)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_120_20
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 120
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 120 | n_local_mcmc = 20)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_120_20
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 120
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "AdaptiveMCMC with MALA (n_local_mcmc = 30)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala_30
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 40 | n_local_mcmc = 30)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_40_30
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 40
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 40 | n_local_mcmc = 30)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_40_30
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 40
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 60 | n_local_mcmc = 30)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_60_30
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 60
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 60 | n_local_mcmc = 30)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_60_30
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 60
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 80 | n_local_mcmc = 30)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_80_30
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 80
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 80 | n_local_mcmc = 30)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_80_30
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 80
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 100 | n_local_mcmc = 30)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_100_30
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 100
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 100 | n_local_mcmc = 30)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_100_30
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 100
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 120 | n_local_mcmc = 30)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_120_30
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 120
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 120 | n_local_mcmc = 30)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_120_30
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 30
+      N: 120
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "AdaptiveMCMC with MALA (n_local_mcmc = 40)":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala_40
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 40 | n_local_mcmc = 40)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_40_40
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 40
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 40 | n_local_mcmc = 40)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_40_40
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 40
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 60 | n_local_mcmc = 40)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_60_40
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 60
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 60 | n_local_mcmc = 40)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_60_40
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 60
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 80 | n_local_mcmc = 40)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_80_40
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 80
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 80 | n_local_mcmc = 40)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_80_40
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 80
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 100 | n_local_mcmc = 40)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_100_40
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 100
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 100 | n_local_mcmc = 40)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_100_40
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 100
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra Ex²MCMC with MALA (N = 120 | n_local_mcmc = 40)":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala_120_40
+    neutralize: true
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 120
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA (N = 120 | n_local_mcmc = 40)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala_120_40
+    neutralize: false
+    warmup_steps: 0
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 40
+      N: 120
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75

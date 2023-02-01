@@ -1,0 +1,5 @@
+torch
+pyro-ppl
+matplotlib
+pyyaml
+normflows @ git+https://github.com/VincentStimper/normalizing-flows.git

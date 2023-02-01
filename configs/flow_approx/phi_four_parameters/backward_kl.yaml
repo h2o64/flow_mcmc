@@ -1,0 +1,14 @@
+save_name: backward_kl
+n_train_steps: 15000
+
+methods:
+
+  "Adaptive i-SIR (loss_type = backward_kl)":
+    name: adaptive_isir
+    save_name: adaptive_isir
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 512
+    loss_type: backward_kl
+    params:
+      N: 64

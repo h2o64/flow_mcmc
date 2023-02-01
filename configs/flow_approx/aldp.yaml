@@ -1,0 +1,101 @@
+batch_size: 32
+save_path: /tmp/results/results_aldp/
+
+methods:
+
+  "Adaptive i-SIR":
+    name: adaptive_isir
+    save_name: adaptive_isir
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 600
+    params:
+      N: 128
+
+  "Adaptive IMH":
+    name: adaptive_imh
+    save_name: adaptive_imh
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 600
+    params:
+      dummy: 0
+
+  "Adaptive IS":
+    name: adaptive_is
+    save_name: adaptive_is
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 600
+    params:
+      N: 19200
+
+  MALA:
+    name: mala
+    save_name: mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 600
+    params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "NeuTra with MALA":
+    name: mala
+    save_name: neutra_mala
+    neutralize: true
+    warmup_steps: 0
+    n_steps: 600
+    params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "Transport ESS":
+    name: ess
+    save_name: tess
+    neutralize: true
+    warmup_steps: 0
+    n_steps: 600
+    params:
+      dummy: 0
+
+  "NeuTra Ex²MCMC with MALA":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_mala
+    neutralize: true
+    warmup_steps: 0
+    n_steps: 600
+    params:
+      N: 128
+      local_sampler: 'mala'
+      n_local_mcmc: 5
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "FlEx²MCMC with MALA":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 600
+    params:
+      N: 128
+      local_sampler: 'mala'
+      n_local_mcmc: 5
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75
+
+  "AdaptiveMCMC with MALA":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 600
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 5
+    local_sampler_params:
+      step_size: 0.01
+      target_acceptance: 0.75

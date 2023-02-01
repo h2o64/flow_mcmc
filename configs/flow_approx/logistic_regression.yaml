@@ -1,0 +1,107 @@
+batch_size: 1
+save_path: /tmp/results/results_logistic_regression/
+
+flow_params:
+  n_realnvp_blocks: 6
+  hidden_dim: 64
+  hidden_depth: 3
+
+methods:
+
+  "Adaptive i-SIR":
+    name: adaptive_isir
+    save_name: adaptive_isir
+    neutralize: false
+    warmup_steps: 64
+    n_steps: 256
+    params:
+      N: 100
+
+  "Adaptive IMH":
+    name: adaptive_imh
+    save_name: adaptive_imh
+    neutralize: false
+    warmup_steps: 64
+    n_steps: 256
+    params:
+      dummy: 0
+
+  "Adaptive IS":
+    name: adaptive_is
+    save_name: adaptive_is
+    neutralize: false
+    warmup_steps: 64
+    n_steps: 256
+    params:
+      N: 25600
+
+  HMC:
+    name: hmc_pyro
+    save_name: hmc
+    neutralize: false
+    warmup_steps: 64
+    n_steps: 256
+    params:
+      step_size: 0.01
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: True
+
+  "NeuTra with HMC":
+    name: hmc_pyro
+    save_name: neutra_hmc
+    neutralize: true
+    warmup_steps: 64
+    n_steps: 256
+    params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: True
+
+  "NeuTra Ex²MCMC with HMC":
+    name: ex2mcmc
+    save_name: neutra_ex2mcmc_hmc
+    neutralize: true
+    warmup_steps: 64
+    n_steps: 256
+    params:
+      N: 100
+      local_sampler: 'hmc_pyro'
+      n_local_mcmc: 20
+    local_sampler_params:
+      step_size: 0.001
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: True
+
+  "FlEx²MCMC with HMC":
+    name: flex2mcmc
+    save_name: flex2mcmc_hmc
+    neutralize: false
+    warmup_steps: 64
+    n_steps: 256
+    params:
+      N: 100
+      local_sampler: 'hmc_pyro'
+      n_local_mcmc: 20
+    local_sampler_params:
+      step_size: 0.01
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: True
+
+  "AdaptiveMCMC with HMC":
+    name: adaptive_mcmc
+    save_name: adaptive_mcmc_hmc
+    neutralize: false
+    warmup_steps: 64
+    n_steps: 256
+    params:
+      local_sampler: 'hmc_pyro'
+      n_local_mcmc: 20
+    local_sampler_params:
+      step_size: 0.01
+      trajectory_length: 8
+      adapt_step_size: True
+      adapt_mass_matrix: True

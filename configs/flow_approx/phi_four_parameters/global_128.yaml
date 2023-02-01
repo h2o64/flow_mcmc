@@ -1,0 +1,21 @@
+# Target parameters
+dim: 128
+a: 0.1
+b: 0.0
+beta: 20
+
+# Flow parameters
+n_realnvp_blocks: 6
+hidden_dim: 256
+hidden_depth: 3
+
+# Training parameters
+n_train_steps: 20000
+lr: 0.01
+batch_size: 4096
+batch_size_mcmc: 64
+step_size_scheduler: 50
+gamma: 0.98
+
+# Save details
+save_path: /tmp/results/phi_four_parameters/

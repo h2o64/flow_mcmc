@@ -1,0 +1,99 @@
+save_name: flex2mcmc
+
+methods:
+
+
+  "FlEx²MCMC with MALA (N = 60 | n_local_mcmc = 15 | loss_type = forward_kl)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 256
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 15
+      N: 60
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+
+  "FlEx²MCMC with MALA (N = 60 | n_local_mcmc = 20 | loss_type = forward_kl)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 256
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 60
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+
+  "FlEx²MCMC with MALA (N = 60 | n_local_mcmc = 25 | loss_type = forward_kl)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 256
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 25
+      N: 60
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+
+  "FlEx²MCMC with MALA (N = 80 | n_local_mcmc = 15 | loss_type = forward_kl)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 256
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 15
+      N: 80
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+
+  "FlEx²MCMC with MALA (N = 80 | n_local_mcmc = 20 | loss_type = forward_kl)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 256
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 20
+      N: 80
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
+
+
+  "FlEx²MCMC with MALA (N = 80 | n_local_mcmc = 25 | loss_type = forward_kl)":
+    name: flex2mcmc
+    save_name: flex2mcmc_mala
+    neutralize: false
+    warmup_steps: 0
+    n_steps: 256
+    loss_type: forward_kl
+    params:
+      local_sampler: 'mala'
+      n_local_mcmc: 25
+      N: 80
+    local_sampler_params:
+      step_size: 0.001
+      target_acceptance: 0.75
