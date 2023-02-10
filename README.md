@@ -1,6 +1,6 @@
 # Flow MCMC
 
-This is the official repository for the preprint "On Sampling with Approximate Transport Maps" (TODO : Arxiv link) in PyTorch. 
+This is the official repository for the preprint "On Sampling with Approximate Transport Maps" ([Arxiv](https://arxiv.org/abs/2302.04763)) in PyTorch. 
 
 ## Installation
 
