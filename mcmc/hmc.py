@@ -266,6 +266,7 @@ class HMC(MCMC):
 					potential_grad=potential_grad,
 					temp=temp
 				)
+			x_s_t = x_s_ts[ell]
 		self.diagnostics['local_acceptance'] = local_accepts
 		return x_s_ts
 

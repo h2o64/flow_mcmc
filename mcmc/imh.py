@@ -70,6 +70,7 @@ class IndependentMetropolisHastings(MCMC):
 				target=target,
 				temp=temp
 			)
+			x_s_t = x_s_ts[ell]
 		self.diagnostics['global_acceptance'] = global_accepts
 		return x_s_ts
 

@@ -61,6 +61,7 @@ class ESS(MCMC):
 				target=target,
 				temp=temp
 			)
+			x_s_t = x_s_ts[ell]
 		self.diagnostics['num_tries'] = num_tries
 		return x_s_ts
 
