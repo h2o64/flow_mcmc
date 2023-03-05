@@ -21,10 +21,7 @@ class MALA(MCMC):
 		# Call parent constructor
 		super(MALA, self).__init__()
 
-	def one_step(self, x_s_t, target, temp):
-		# Compute log-densities at the previous point
-		en_s_t = target(x_s_t).view((x_s_t.shape[0],)) / temp
-		grad_s_t = torch.autograd.grad(en_s_t.sum(), x_s_t)[0]
+	def one_step(self, grad_s_t, en_s_t, x_s_t, target, temp):
 		# Sample the proposal
 		x_prop = sample_multivariate_normal_diag(
 			batch_size=x_s_t.shape[0],
@@ -48,6 +45,8 @@ class MALA(MCMC):
 		log_acc = joint_prop - joint_orig
 		mask = torch.log(torch.rand_like(en_s_t, device=x_s_t.device)) < log_acc
 		x_s_t.data[mask] = x_prop[mask]
+		en_s_t.data[mask] = en_prop[mask]
+		grad_s_t.data[mask] = grad_prop[mask]
 		# Compute mean acceptance propobability
 		if x_s_t.shape[0] > 1:
 			mean_acc = torch.mean(mask.float()).cpu()
@@ -55,21 +54,25 @@ class MALA(MCMC):
 			mean_acc = min(float(torch.exp(log_acc.cpu())), 1.0)
 		self.step_size = self.adapt_stepsize(mean_acc)
 		# Return the data
-		return x_s_t, mean_acc
+		return x_s_t, en_s_t, grad_s_t, mean_acc
 
 	def sample(self, x_s_t_0, n_steps, target, temp=1.0, warmup_steps=0, verbose=False):
 		x_s_t = torch.autograd.Variable(x_s_t_0.clone(), requires_grad=True)
+		en_s_t = target(x_s_t).view((x_s_t.shape[0],)) / temp
+		grad_s_t = torch.autograd.grad(en_s_t.sum(), x_s_t)[0]
 		x_s_ts = torch.zeros((n_steps, *x_s_t.shape), device=x_s_t.device)
 		local_accepts = torch.zeros((n_steps,)).cpu()
 		r = trange(n_steps) if verbose else range(n_steps)
 		# Warmup steps
 		if warmup_steps > 0:
 			for _ in range(warmup_steps):
-				x_s_t, _ = self.one_step(x_s_t=x_s_t, target=target, temp=temp)
+				x_s_t, en_s_t, grad_s_t, _ = self.one_step(x_s_t=x_s_t, en_s_t=en_s_t, grad_s_t=grad_s_t, target=target, temp=temp)
 		# Sampling steps
 		for ell in r:
-			x_s_ts[ell], local_accepts[ell] = self.one_step(
+			x_s_ts[ell], en_s_t, grad_s_t, local_accepts[ell] = self.one_step(
 				x_s_t=x_s_t,
+				en_s_t=en_s_t,
+				grad_s_t=grad_s_t,
 				target=target,
 				temp=temp
 			)
