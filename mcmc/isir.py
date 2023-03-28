@@ -58,7 +58,7 @@ class iSIR(MCMC):
 				ess = 0.0
 			# Select the particles
 			indices = torch.multinomial(weights, 1).squeeze()
-			x_s_t = particles[torch.arange(batch_size), indices]
+			x_s_t.data = particles[torch.arange(batch_size), indices]
 			# Compute the acceptance
 			mean_acc = (indices != 0).float().mean().cpu()
 		# Return the data
