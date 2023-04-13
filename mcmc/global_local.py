@@ -38,7 +38,7 @@ class GlobalLocal(MCMC):
 		r = trange(n_steps) if verbose else range(n_steps)
 		# Do a little warmup of the local steps if needed
 		if warmup_steps > 0:
-			x_s_t, target_x_s_t, prop_x_s_t, _, _ = self.global_mcmc.one_step(
+			x_s_t, _, _, _, _ = self.global_mcmc.one_step(
 				x_s_t=x_s_t,
 				target_x_s_t=target_x_s_t,
 				prop_x_s_t=prop_x_s_t,
@@ -53,7 +53,15 @@ class GlobalLocal(MCMC):
 				temp=temp,
 				verbose=False
 			).detach().clone()[-1]
+			# Reset local diagnostics
 			self.local_mcmc.reset_diagnostics()
+			# Reset target_x_s_t and prop_x_s_t
+			if isinstance(self.global_mcmc, IndependentMetropolisHastings):
+				target_x_s_t = target(x_s_t)
+				prop_x_s_t = self.global_mcmc.eval_proposal(x_s_t)
+			else:
+				target_x_s_t = None
+				prop_x_s_t = None
 		for ell in r:
 			if step_count >= n_steps:
 				break
